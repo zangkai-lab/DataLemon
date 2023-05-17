@@ -1,0 +1,64 @@
+openapi: 3.0.1
+info:
+  title: Data Lemon
+  description: Plugin to link the database for data analysis.
+  version: 'v1'
+servers:
+  - url: http://localhost:1163
+paths:
+  /structure:
+    get:
+      operationId: getTableStructure
+      summary: Get all Table Structure about the dataset
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getTableStructure'
+  /execute:
+    post:
+      operationId: executeSql
+      summary: Execute SQL
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sql:
+                  type: string
+                  description: The sql to execute.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                schema:
+                  type: object
+                  properties:
+                    result:
+                      type: string
+                      description: The result of execute.
+
+
+components:
+  schemas:
+    getColumnStructure:
+      type: object
+      properties:
+        table_name:
+          type: string
+          description: The table name of column.
+        column_name:
+          type: string
+          description: The column name of column.
+        data_type:
+          type: string
+          description: The data type of column.
+    getTableStructure:
+      type: array
+      items:
+        $ref: '#/components/schemas/getColumnStructure'

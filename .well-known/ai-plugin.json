@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Data Lemon",
+    "name_for_model": "DataLem",
+    "description_for_human": "Plugin to link the database for data analysis.",
+    "description_for_model": "Plugin to link the database for data analysis.",
+    "auth": {
+      "type": "none"
+    },
+    "api": {
+      "type": "openapi",
+      "url": "http://localhost:1163/openapi.yaml",
+      "is_user_authenticated": false
+    },
+    "logo_url": "http://localhost:1163/logo.png",
+    "contact_email": "erickant505@gmail.com",
+    "legal_info_url": "https://example.com/legal"
+}
